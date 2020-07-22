@@ -57,27 +57,19 @@ public class DBConnection {
 
 	public int register(String num, String id, String password, String age, String phone, String mileage) {
 
-		pstmt = null;
-		ResultSet re = null;
-		String SQL = "INSERT INTO member_test VALUES (?, ?, ?, ?)";
+		String SQL = "INSERT INTO member_test VALUES (?, ?, ?, ?, ?, ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, id);
-			pstmt.setString(2, password);
-			pstmt.setString(3, phone);
-			pstmt.setString(4, mileage);
-			return pstmt.executeUpdate();
+			pstmt.setString(1, num);
+			pstmt.setString(2, id);
+			pstmt.setString(3, password);
+			pstmt.setString(4, age);
+			pstmt.setString(5, phone);
+			pstmt.setString(6, mileage);
+			pstmt.executeUpdate();
+			return 1;
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
 		return -1; // 오류
 	}

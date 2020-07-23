@@ -55,12 +55,12 @@ public class DBConnection {
 		return false;
 	}
 
-	public int register(String num, String id, String password, String age, String phone, String mileage) {
+	public int register(int num, String id, String password, String age, String phone, String mileage) {
 
 		String SQL = "INSERT INTO member_test VALUES (?, ?, ?, ?, ?, ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, num);
+			pstmt.setInt(1, num);
 			pstmt.setString(2, id);
 			pstmt.setString(3, password);
 			pstmt.setString(4, age);

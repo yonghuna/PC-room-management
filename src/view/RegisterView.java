@@ -26,7 +26,7 @@ public class RegisterView extends JFrame implements ActionListener {
 	JTextField typeID = new JTextField();
 	JTextField typeNumber = new JTextField();
 	JPasswordField typePW = new JPasswordField();
-	DBConnection db;
+	DBConnection db = new DBConnection();
 
 	public RegisterView() {
 		setTitle("회원가입");
@@ -61,10 +61,11 @@ public class RegisterView extends JFrame implements ActionListener {
 			String password = new String(pw);
 			String age = (typeAge.getText());
 			String phoneNumber = (typeNumber.getText());
-			int existLogin = db.register("0", id, password, age, phoneNumber, "0");
+			int existLogin = db.register(0, id, password, age, phoneNumber, "0");
 			if (existLogin == 1) {
 				// 로그인 성공
 				JOptionPane.showMessageDialog(null, "성공");
+				dispose();
 			} else {
 				// 로그인 실패
 				JOptionPane.showMessageDialog(null, "실패");

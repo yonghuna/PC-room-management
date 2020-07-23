@@ -94,10 +94,5 @@ public class LoginFream extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (loginTextField.getText() && passwordField.getPassword() == null) {
-		} else {
-			db.login(loginTextField.getText(), passwordField.getPassword());
-		}
-
 	}
 }
